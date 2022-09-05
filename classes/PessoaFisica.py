@@ -16,24 +16,39 @@ class PessoaFisica:
     As propriedades email e cpf estão privadas para previnir o usuário da classe de 
     acessar e alterar diretamente a propriedade sem uma verificação.
     '''
-
-    def __init__(self, cpf, email, nome='Visitante'):
+    lista = []
+    def __init__(self, nome, cpf , email):
         self.nome = nome
         self.email = email
         self.cpf = cpf
         self.__enderecos = {}
+        PessoaFisica.lista.append(self)
 
     # escolher o estilo de retorno
 
     def adicionar_endereco(self, apelido_endereco, end:Endereco):
-        pass
+        self.__enderecos[apelido_endereco] = end 
 
     def remover_endereco(self, apelido_endereco):
-        pass
+        del self.__enderecos[apelido_endereco]
 
     def get_endereco(self, apelido_endereco):
-        pass
+        if apelido_endereco in self.__enderecos:
+            return self.__enderecos[apelido_endereco]
 
     def listar_enderecos(self):
-        pass
-    
+        lista_enderecos = []
+        for endereco in self.__enderecos:
+            print(endereco) 
+            lista_enderecos.append(endereco)   
+        return lista_enderecos
+
+    def busca_nome(pesquisa):
+       for pessoa in PessoaFisica.lista:
+            if pesquisa in pessoa.nome:
+                return [pessoa.nome]
+        
+        
+
+    def __str__(self):
+        return f'{self.nome}; {self.email}; {self.cpf}'

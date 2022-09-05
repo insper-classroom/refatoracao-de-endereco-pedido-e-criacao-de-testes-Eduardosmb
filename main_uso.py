@@ -7,9 +7,9 @@
 # ---------------------------------------------------------------------------
 from classes.PessoaFisica import PessoaFisica
 from classes.Endereco import Endereco
+from classes.Produto import Produto
 
-
-pessoa1 = PessoaFisica('Carlos', 'tiago@email.com', '524.222.452-6')
+pessoa1 = PessoaFisica('524.222.452-6', 'tiago@email.com', 'Carlos')
 print(pessoa1)
 
 
@@ -21,8 +21,8 @@ print(end2)
 
 pessoa1.adicionar_endereco('casa', end1)
 
-print(pessoa1.listar_enderecos())
+pessoa1.listar_enderecos()
 
 pessoa1.adicionar_endereco('trabalho', end2)
 
-print(pessoa1.listar_enderecos())
+pessoa1.listar_enderecos()
